@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('cats', function (Blueprint $table) {
             $table->id();
-            $table->string(' vname', 50);
-            $table->text('desc');
+            $table->string('name', 50);
+            $table->string('desc', 50);
             $table->string('img', 50)->nullable();
             $table->timestamps();
         });

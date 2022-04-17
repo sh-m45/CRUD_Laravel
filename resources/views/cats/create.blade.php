@@ -52,7 +52,7 @@
                     <td>{{$cat->img}}</td>
                     <td>{{$cat->desc}}</td>
                     <td><a class="btn btn-Primary" href='{{url("/cats/show/$cat->id")}}'>Show</a></td>
-                    <td><a class="btn btn-warning" href='{{url("/cats/edit/$cat->id")}}'>Update</a></td>
+                    <td><a class="btn btn-secondary" href='{{url("/cats/edit/$cat->id")}}'>Update</a></td>
                     <td><a class="btn btn-danger" href='{{url("/cats/delete/$cat->id")}}'>Delete</a></td>
                 </tr>
                 @endforeach
