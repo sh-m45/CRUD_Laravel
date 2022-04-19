@@ -8,16 +8,21 @@ Edit item
 @section('content')
 <section class="container">
     <h1 class="titelPage w-100 text-center py-2">Edit Categories - {{$cat->name}}</h1>
-    <form method="POST" action='{{url("/cats/update/$cat->id")}}'>
+    <form method="POST" action='{{url("/cats/update/$cat->id")}}' enctype="multipart/form-data">
         @csrf
         <div class="form-group my-3">
             <label style="font-weight: 500 " class="mb-2">Name : </label>
             <input name="name" type="text" class="form-control" value="{{$cat->name}}" />
         </div>
 
-        <div class="form-group my-3">
+        <!-- <div class="form-group my-3">
             <label style="font-weight: 500" class="mb-2"> Title : </label>
             <input id="ageEmp" name="img" type="text" class="form-control" value="{{$cat->img}}" />
+        </div> -->
+
+        <div class="form-group my-3">
+            <label style="font-weight: 500 " class="mb-2">Image : </label>
+            <input id="ageEmp" name="img" type="file" class="form-control" />
         </div>
 
         <div class="form-group my-3">
@@ -26,6 +31,15 @@ Edit item
 
         </div>
 
+        @if($errors->any())
+        <div class="alter alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="w-100 d-flex justify-content-end">
             <button id="submitBtn" type="submit" class="btn btn-success mb-3 mt-3 ">Update Item</button>
         </div>
