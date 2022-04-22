@@ -15,14 +15,19 @@ Edit item
             <input name="name" type="text" class="form-control" value="{{$cat->name}}" />
         </div>
 
-        <!-- <div class="form-group my-3">
-            <label style="font-weight: 500" class="mb-2"> Title : </label>
-            <input id="ageEmp" name="img" type="text" class="form-control" value="{{$cat->img}}" />
-        </div> -->
+        <div class="form-group my-3">
+            <label style="font-weight: 500 " class="mb-2">Title : </label>
+            <input name="Title" type="text" class="form-control" value="{{$cat->Title}}" />
+        </div>
 
         <div class="form-group my-3">
             <label style="font-weight: 500 " class="mb-2">Image : </label>
             <input id="ageEmp" name="img" type="file" class="form-control" />
+        </div>
+
+        <div class="form-group my-3">
+            <label style="font-weight: 500 " class="mb-2">created_by : </label>
+            <input name="user_id"  class="form-control" value="{{$cat->user_id}}" />
         </div>
 
         <div class="form-group my-3">

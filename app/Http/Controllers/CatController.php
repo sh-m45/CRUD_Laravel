@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -43,17 +44,27 @@ class CatController extends Controller
         // dd($request->name, $request->img, $request->desc, $request->all());
         $request->validate([
             'name' => 'required|string|max:50',
+            'Title' => 'required|string|max:50',
             'img' => 'required|image|max:1024|mimes:jpg,jpeg,png',
             'desc' => 'required|string',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         // dd($request->all());
+        //dd($request->Title);
+        //$removeSpace = str_ireplace(" ","_",$request->Title);
+        // dd($removeSpace);
         $imgPath = Storage::putFile("cats",$request->img);
+        $nameUser = User::findOrFail($request->user_id); // b7awl a3ml return name of user
+        //dd($nameUser);
         Cat::create([
             'name' => $request->name,
             // 'img' => $request->img,
             'img' => $imgPath ,
+            'Title'=> $request->Title,
+            'user_id' => $request->user_id ,
             'desc' => $request->desc,
+           
         ]);
         return redirect(url('/cats/create'));
     }
@@ -71,6 +82,7 @@ class CatController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:50',
+            'Title' => 'required|string|max:50',
             'img' => 'nullable|image|max:1024|mimes:jpg,jpeg,png',
             'desc' => 'required|string',
         ]);
@@ -88,7 +100,10 @@ class CatController extends Controller
         $cat->update([
             'name' => $request->name,
             'img' => $imgPath,
+            'Title'=> $request->Title,
+            'user_id' => $request->user_id ,
             'desc' => $request->desc,
+            
         ]);
         return redirect(url('/cats/create'));
     }

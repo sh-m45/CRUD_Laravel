@@ -26,7 +26,7 @@ Show Category
 
                 <p><span style="font-weight: 700">Description:</span> {{$cat->desc}}</p>
 
-                <small>created at :  {{ $cat->created_at->format('y-m-d') }}</small>
+                <p><span style="font-weight: 700">created at:</span>  {{ $cat->created_at->format('y-m-d') }}</p>
                 {{--<p><span style="font-weight: 700">created at:</span> {{$mutable}}</p>--}}
                 <div class="d-flex justify-content-end w-100">
                     <a class="btn btn-secondary" href='{{"/cats/create"}}'>
