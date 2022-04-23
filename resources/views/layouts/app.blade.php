@@ -13,24 +13,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mb-2 mb-lg-0 d-flex justify-content-end w-100">
-            <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Add</a>
-            </li>
-            <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Update</a>
-            </li>
-            <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Delete</a>
-            </li>
-            <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Show</a>
-            </li>
-            <li class="nav-item mx-3">
-            <a class="nav-link " href="#">Service</a>
-            </li>
+            
+            @guest
+                <li class="nav-item mx-3">
+                <a class="nav-link" href="{{url('/register')}}">Register</a>
+                </li>
+                <li class="nav-item mx-3">
+                <a class="nav-link" href="{{url('/login')}}">Login</a>
+                </li> 
+            @endguest
+            
+            @auth
+                <li class="nav-item mx-3">
+                    <a class="nav-link active" aria-current="page" href="{{url('/cats/create')}}">Home</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="{{url('/cats')}}">Show All</a>
+                </li>
+                <li class="nav-item mx-3">
+                <a class="nav-link" href="{{url('/logout')}}">Logout</a>
+                </li>
+            @endauth
+
             
         </ul>
        

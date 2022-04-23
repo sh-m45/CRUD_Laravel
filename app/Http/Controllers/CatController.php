@@ -52,18 +52,19 @@ class CatController extends Controller
 
         // dd($request->all());
         //dd($request->Title);
-        //$removeSpace = str_ireplace(" ","_",$request->Title);
-        // dd($removeSpace);
+
         $imgPath = Storage::putFile("cats",$request->img);
         $nameUser = User::findOrFail($request->user_id); // b7awl a3ml return name of user
         //dd($nameUser);
+        //dd($nameUser->name); //---> null
         Cat::create([
             'name' => $request->name,
             // 'img' => $request->img,
             'img' => $imgPath ,
             'Title'=> $request->Title,
-            'user_id' => $request->user_id ,
+            'user_id' => $request->user_id ,   
             'desc' => $request->desc,
+            'name_user' => $nameUser->name ,
            
         ]);
         return redirect(url('/cats/create'));

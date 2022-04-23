@@ -74,7 +74,7 @@ Create item
                 <td>{{$cat->name}}</td>
                 <td>{{$cat->Title}}</td>
                 <td>{{$cat->img}}</td>
-                <td>{{$cat->user_id}}</td>
+                <td>{{$cat->name_user}}</td>
                 <td>{{$cat->desc}}</td>
                 <td>{{ $cat->created_at->format('y-m-d') }}</td>
                 <td>{{str_ireplace(" ","_",$cat->Title)}}</td>

@@ -9,5 +9,5 @@ class Cat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'img', 'Title', 'user_id' , 'desc'];
+    protected $fillable = ['name', 'img', 'Title', 'user_id' , 'desc', 'name_user'];
 }
